@@ -18,8 +18,8 @@ The threads use the counter to add and subtract values.
 | Counter class           | Limit              | Runtime (sec)   |
 |:------------------------|:-------------------|-----------------|
 | Unsynchronized counter  |1,000,00,000        |0.0839856        |
-| Using ReentrantLock     |                    |                 |
-| Syncronized method      |                    |                 |
+| Using ReentrantLock     |1,000,00,000        |9.5354053        |
+| Syncronized method      |                    |8.9087386        |
 | AtomicLong for total    |                    |                 |
 
 ## 1. Using unsynchronized counter object
@@ -31,11 +31,17 @@ The threads use the counter to add and subtract values.
 
 ## 2. Implications for Multi-threaded Applications
 
-How might this affect real applications?  
+This can affect when the customer withdraw and receive money transaction at the same time the account could have 0 in his account if the thread of withdraw finish after the thread of transaction.   
 
 ## 3. Counter with ReentrantLock
 
-answer questions 3.1 - 3.4
+3.1 Now the total is always be zero.
+
+3.2 Because we lock the Counter for 1 operation only and when it's done it will unlock and do the next operation now the operation is in order so it's always return 0.
+
+3.3 It will lock the operation of the thread. Because when we have a multithread that access the same resource we want to make the multithread access a resouce one at a time.
+
+3.4 When the operation done the counter is still lock we have to unlock it so the next operation can access counter.
 
 ## 4. Counter with synchronized method
 
