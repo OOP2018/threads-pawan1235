@@ -2,7 +2,7 @@
 public class ThreadSum {
 	public static void main(String[] args) {
 		final int LIMIT = 100000000;
-		Counter counter = new AtomicCounter();
+		Counter counter = new SynchronousCounter();
 		runThreads(counter, LIMIT);
 	}
 	public static void runThreads(Counter counter,final int limit) {
