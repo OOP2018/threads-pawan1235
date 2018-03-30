@@ -1,10 +1,21 @@
-
+/**
+ * Main for starting multithread
+ * @author Pawan Intawongsa
+ *
+ */
 public class ThreadSum {
 	public static void main(String[] args) {
 		final int LIMIT = 100000000;
 		Counter counter = new SynchronousCounter();
 		runThreads(counter, LIMIT);
 	}
+	/**
+	 * Start multithread 
+	 * @param counter
+	 * 				 is Counter we want to count
+	 * @param limit
+	 * 				is the limit of the Counter we want to count
+	 */
 	public static void runThreads(Counter counter,final int limit) {
 		AddTask addTask = new AddTask(counter, limit);
 		SubtractTask subTask = new SubtractTask(counter, limit);
