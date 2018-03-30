@@ -25,6 +25,8 @@ The threads use the counter to add and subtract values.
 ## 1. Using unsynchronized counter object
 
 answer the questions (1.1 - 1.3)
+1.1 Ans: The total should be zero but after the several run the total is not zero and it never the same.
+1.3 Ans: Becasue The 2 threads share the same counter and those 2 threads are running at the same time so if 1 of them finished it will return it's counter value. This is why the total is not zero and not the same at each time.
 
 ## 2. Implications for Multi-threaded Applications
 
